@@ -3,7 +3,6 @@ import numpy as np
 import math
 import detection.config as config
 
-"""
 #!/usr/bin/python
 # Example using a character LCD connected to a Raspberry Pi
 import time
@@ -23,7 +22,7 @@ lcd_columns = 16
 lcd_rows = 2
 
 lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7, lcd_columns, lcd_rows, lcd_backlight)
-"""
+
 
 # this script is to test the detection region parameters so you can set up
 # the configuration according to your background
@@ -189,17 +188,19 @@ while(True):
 
 
     cv2.putText(frame, count_defects.__str__(), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-  #  print count_frame
-    #if count_defects == 1
-	#	lcd.message('1')
-    #elif count_defects == 2
-	#	lcd.message('2')
-    #elif count_defects == 3
-	#	lcd.message('3')
-   # elif count_defects == 4
-	#	lcd.message('4')
-   # elif count_defects == 5
-	#	lcd.message('5')
+    print count_defects
+    lcd.message( count_defects.__str__() )
+    """
+if count_defects == 1
+lcd.message('1')
+    elif count_defects == 2
+		lcd.message('2')
+    elif count_defects == 3
+		lcd.message('3')
+    elif count_defects == 4
+		lcd.message('4')
+    elif count_defects == 5
+		lcd.message('5')"""
     # show images
     cv2.imshow('test-display', frame)
     test = np.hstack((detection_draw, detection_region))
